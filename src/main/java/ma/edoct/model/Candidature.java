@@ -3,7 +3,7 @@ package ma.edoct.model;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "candidat_postuler", uniqueConstraints = @UniqueConstraint(columnNames = {"candidat_id", "sujet_id"}))
+@Table(name = "candidat_postuler")
 public class Candidature {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY) private Long id;
     @Column(name = "pathFile", length = 100) private String pathFile;
@@ -17,6 +17,7 @@ public class Candidature {
     public Long getCandidatId() { return candidat == null ? null : candidat.id; }
     public Long getSujetId() { return sujet == null ? null : sujet.getId(); }
     public String getPathFile() { return pathFile; }
+    public Candidat getCandidat() { return candidat; }
     public Sujet getSujet() { return sujet; }
     public void setPathFile(String value) { pathFile = value; }
     public void setSujet(Sujet value) { sujet = value; }
